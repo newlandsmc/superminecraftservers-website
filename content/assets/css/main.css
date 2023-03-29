@@ -1,0 +1,366 @@
+:root {
+  --primary: #000000;
+  --secondary: rgb(8 9 14 / 100%);
+  --secondary-active: rgb(22 25 36 / 100%);
+  --tertiary: #369356;
+  --action: #007ACC;
+  --action-text: #0097ff;
+  --action-text-active: #007ACC;
+  --action-taken: #768691;
+  --highlight: #329dff;
+  --content: #bfc1cf;
+  --focus: #d5d7e7;
+}
+
+/*
+  ---------------------------
+  Fonts
+  ---------------------------
+*/
+
+@font-face {
+  font-family: 'mctext';
+  font-display: swap;
+  src: url(/assets/fonts/mctext.woff2) format('woff2'),
+       url(/assets/fonts/mctext.woff) format('woff'),
+       url(/assets/fonts/mctext.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'mctext-bold';
+  font-display: swap;
+  src: url(/assets/fonts/mctext-bold.woff2) format('woff2'),
+       url(/assets/fonts/mctext-bold.woff) format('woff'),
+       url(/assets/fonts/mctext-bold.ttf) format('truetype');
+}
+
+/*
+@font-face {
+  font-family: 'mctitle';
+  font-display: swap;
+  src: url(/assets/fonts/mctitle.woff2) format('woff2'),
+       url(/assets/fonts/mctitle.woff) format('woff'),
+       url(/assets/fonts/mctitle.ttf) format('truetype');
+}
+*/
+
+/*
+  ---------------------------
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+  ---------------------------
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  z-index: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+#root, #__next {
+  isolation: isolate;
+}
+*/
+
+/*
+  ---------------------------
+  Custom CSS Starts Here
+  ---------------------------
+*/
+
+table {
+  border-spacing: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+main {
+  background: linear-gradient( rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.87) ), url(/assets/images/stone.webp);
+}
+
+a {
+  text-decoration: none;
+  color: var(--action-text);
+}
+
+a:hover {
+  color: var(--action-text-active);
+}
+
+.ip {
+  font-family: 'mctext';
+  font-size: 2rem;
+  line-height: 1.5;
+  padding: 10px 30px;
+  border-radius: 1000px;
+  background-color: rgb(0 0 0 / 35%);
+  display: inline-block;
+  color: var(--content);
+  text-shadow: 0 2px black, 2px 0 black;
+}
+
+button {
+  padding: 10px;
+  margin: 16px;
+  min-width: 90px;
+  line-height: 1.5em;
+  border-radius: 5px;
+  background-color: var(--action);
+  font-family: 'mctext';
+  font-weight: 100;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 0px #000000;
+}
+
+button:hover {
+  -webkit-animation: grow 100ms !important;
+  -webkit-animation-fill-mode: both !important;
+}
+
+@keyframes grow {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 50px 100px 50px;
+  background: linear-gradient( rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.90)), url(/assets/images/gravel.webp);
+  z-index: 1000;
+  color: var(--content);
+}
+
+.overlay {
+  pointer-events: none;
+  display: flex;
+  opacity: 0;
+  transition: opacity .3s;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 2000;
+}
+
+.overlay.active {
+  pointer-events: initial;
+  opacity: 1;
+}
+
+.overlay-bg {
+  width: 100%;
+  height: 100vh;
+}
+
+.overlay-fg {
+  width: 80%;
+  max-width: 440px;
+  background: linear-gradient( 45deg, rgb(104 156 223), rgb(9 58 100) );
+  color: #dddddd;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 5px 5px 15px 0px #000000;
+  padding: 60px 0 50px 0;
+  position: fixed;
+}
+
+#overlay-close {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  padding: 10px;
+  transition: opacity .2s;
+}
+
+#overlay-close:before,#overlay-close:after{
+    content:'';
+    position:absolute;
+    width:18px;
+    height:2px;
+    background-color:#cccccc;
+    border-radius:2px;
+}
+
+#overlay-close:before{
+  -webkit-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  transform:rotate(45deg);
+  right:2px;
+}
+#overlay-close:after{
+  -webkit-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+  right:2px;
+}
+
+#overlay-close:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+nav, footer {
+  justify-content: center;
+  display: flex;
+}
+.width-controller {
+  width: 80%;
+  max-width: 1020px;
+}
+main {
+  color: var(--content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section {
+  width: 80%;
+  max-width: 1020px;
+  margin-top: 50px;
+}
+nav {
+  width: 100%;
+  background-color: var(--tertiary);
+  color: white;
+  height: 60px;
+  z-index: 1000;
+  position: relative;
+}
+nav div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#nav-title {
+  font-family: 'mctext';
+  text-shadow: 2px 2px 2px black;
+  font-size: 1.5rem;
+  color: white !important;
+}
+h1 {
+  font-family: 'mctext';
+  color: white;
+  font-size: 3rem;
+  text-shadow: 0 2px black, 2px 0 black;
+  line-height: 1;
+}
+h2 {
+  font-family: 'mctext';
+  color: var(--focus);
+  font-size: 2rem;
+  text-shadow: 0 2px black, 2px 0 black;
+  margin-top: 10px;
+}
+h3, h4{
+  font-family: 'mctext';
+  color: var(--focus);
+  font-size: 1.6rem;
+  text-shadow: 0 2px black, 2px 0 black;
+}
+thead {
+  height: 50px;
+  background-color: var(--tertiary);
+  color: white;
+}
+th {
+  padding: 10px;
+}
+tbody tr {
+  background: rgb(100 248 255 / 6%);
+}
+.table-server-list {
+  width: 100%;
+}
+.table-banner {
+  text-align: left;
+  max-width: 468px;
+}
+.table-name {
+  text-align: left;
+}
+.table-banner * {
+  margin: 5px 0;
+}
+.table-desc {
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+.more-content p {
+  margin: 10px;
+}
+#join {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+#join img, #join div {
+  width: 50%;
+  margin-top: 50px;
+}
+#join h2 {
+  width: 100% !important;
+}
+#join img {
+  padding-left: 50px;
+  height: fit-content;
+}
+
+/*
+  ---------------------------
+  Multi-Device Support Starts Here
+  ---------------------------
+*/
+
+@media (max-width: 700px) {
+  .table-name, .table-players {
+    display: none;
+  }
+  #join img, #join div{
+    width: 100%;
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,4 @@
+user-agent: * 
+sitemap: https://superminecraftservers.com/sitemap.xml
+disallow: /assets/fonts/
+disallow: /assets/videos/
