@@ -24,6 +24,17 @@
       }
     </script>
     <script defer async type="module">
+      import '/assets/javascript/jquery-3.6.0.min.js';
+      $(function() {
+        $('.scroll').click(function() {
+          var id = $(this).attr('href');
+          document.getElementById('join-title').style.color = "var(--highlight)";
+          $('html,body').animate({ scrollTop: $(id).offset().top }, 'slow');
+          return false;
+        });
+      });
+    </script>
+    <script defer async type="module">
       import '/assets/javascript/jquery-3.6.3.min.js';
       $(document).ready(function () {
         jQuery.getJSON("https://api.mcsrvstat.us/2/play.newlandsmc.com",function(json){
@@ -43,6 +54,10 @@
           }
         });
       });
+    </script>
+    <script async defer type="module">
+      import '/assets/javascript/jquery-3.6.3.min.js';
+      document.getElementById('nav-home').setAttribute('class','active');
     </script>
   </head>
   <body id="landing-body">
@@ -91,43 +106,43 @@
           </tbody>
         </table>
       </section>
-      <section class="more-content">
+      <section>
         <h2>What is New Lands Survival?</h2>
-        <p>New Lands Survival is a public survival server with a relaxing vibe, friendly community, and hard difficulty survival!</p>
-        <p>We protect your game with optional PVP, self-service land protection, and active admins ready to help.</p>
-        <p>Every player starts somewhere new! We do not have a main spawn and start every player somewhere in the survival world, just like vanilla Minecraft!</p>
-        <p>You can add custom enchantments to your items, level up your skills like an RPG, and enjoy quality-of-life improvements like sleep voting!</p>
+        <p style="margin: 10px;">New Lands Survival is a public survival server with a relaxing vibe, friendly community, and hard difficulty survival!</p>
+        <p style="margin: 10px;">We protect your game with optional PVP, self-service land protection, and active admins ready to help.</p>
+        <p style="margin: 10px;">Every player starts somewhere new! We do not have a main spawn and start every player somewhere in the survival world, just like vanilla Minecraft!</p>
+        <p style="margin: 10px;">You can add custom enchantments to your items, level up your skills like an RPG, and enjoy quality-of-life improvements like sleep voting!</p>
       </section>
-      <section class="more-content">
+      <section>
         <h2>What is SemiVanilla?</h2>
-        <p>SemiVanilla is a new Minecraft server with bare minimum plugins and modifications to the vanilla experience. The goal is to provide the best "semivanilla" experience out there.</p>
-        <p>On SemiVanilla every player starts somewhere new, there is no main spawn. This gives everyone the same vanilla-like experience when starting out - spawning somewhere random, with no idea what, or who, is around you. Ideally, the land will always be fresh and ready to harvest or build on.</p>
-        <p>The world is 50,000 by 50,000 to give everyone room to spread out and give the best chance that every new player will start somewhere unique.</p>
+        <p style="margin: 10px;">SemiVanilla is a new Minecraft server with bare minimum plugins and modifications to the vanilla experience. The goal is to provide the best "semivanilla" experience out there.</p>
+        <p style="margin: 10px;">On SemiVanilla every player starts somewhere new, there is no main spawn. This gives everyone the same vanilla-like experience when starting out - spawning somewhere random, with no idea what, or who, is around you. Ideally, the land will always be fresh and ready to harvest or build on.</p>
+        <p style="margin: 10px;">The world is 50,000 by 50,000 to give everyone room to spread out and give the best chance that every new player will start somewhere unique.</p>
       </section>
       <section id="join">
-        <h2>How to Join a Minecraft server?</h2>
+        <h2 id="join-title">How to Join a Minecraft server?</h2>
         <div>
           <h3>Java Edition</h3>
           <ol>
             <li>In Minecraft, go to <strong>Multiplayer</strong> and then <strong>Add Server</strong>.</li>
             <li>Enter a name, this can be anything you want!</li>
-            <li>Enter "<span style="color: var(--confirm);">play.newlandsmc.com</span>" for the <strong>Server Address</strong>.</li>
+            <li>Enter the IP you copied for the server as the <strong>Server Address</strong>.</li>
             <li>Click <strong>Done</strong>.</li>
             <li>Select our server and join!</li>
           </ol>
         </div>
-        <img src="/assets/images/join-java-edition-small.webp">
+        <img src="/assets/images/join-java-edition-small.webp" alt="Minecraft Java Edition - Edit Server Info Menu - Screenshot">
         <div>
           <h3>Bedrock Edition</h3>
           <ol>
             <li>In Minecraft, go to <strong>Play</strong> and then <strong>Servers</strong>.</li>
             <li>Scroll to the bottom and tap on <strong>Add Server</strong>.
             <li>Enter a name, this can be anything you want!</li>
-            <li>Enter "<span style="color: var(--confirm);">play.newlandsmc.com</span>" for the <strong>Server Address</strong>. Leave the default port (19132).</li>
+            <li>Enter the IP you copied for the server as the <strong>Server Address</strong>. Leave the default port (19132).</li>
             <li>Tap <strong>Play</strong>!</li>
           </ol>
         </div>
-        <img src="/assets/images/join-bedrock-edition-small.webp">
+        <img src="/assets/images/join-bedrock-edition-small.webp" alt="Minecraft Bedrock Edition - Add External Server Menu - Screenshot">
       </section>
       <?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'] .'/assets/templates/ip-overlay.html'); ?>
     </main>

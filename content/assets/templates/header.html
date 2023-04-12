@@ -1,5 +1,28 @@
-<nav>
+<nav id="mobile-nav">
+  <div class="hamburger">
+    <!--A fake / hidden checkbox is used as click reciever, so you can use the :checked selector on it.-->
+    <input aria-label="Navigation menu" type="checkbox"></input>
+    <!--Some spans to act as a hamburger. They are acting like a real hamburger, not that McDonalds stuff.-->
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+    <span class="hamburger"></span>
+    <ul>
+      <li><a href="/">Home ></a></li>
+      <li><a href="/about/">About Us ></a></li>
+      <li><a href="/partners/">Partners ></a></li>
+    </ul>
+  </div>
+</nav>
+<nav id="main-nav">
   <div class="width-controller">
-    <a aria-label="Homepage" href="/" id="nav-title">Super Minecraft Servers!</a>
+    <div style="display: flex;">
+      <a aria-label="Homepage" href="/"><img style="height: 40px; margin-right: 10px;" src="/assets/images/logo.webp" alt="Super Minecraft Servers Logo"></a>
+      <a aria-label="Homepage" href="/" id="nav-title">Super Minecraft Servers!</a>
+    </div>
+    <ul>
+      <li><a id="nav-home" aria-label="Homepage" href="/">Home</a></li>
+      <li><a id="nav-about" href="/about/">About Us</a></li>
+      <li><a id="nav-partners" href="/partners/">Partners</a></li>
+    </ul>
   </div>
 </nav>
