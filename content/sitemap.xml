@@ -9,7 +9,18 @@
 
 <url>
   <loc>https://superminecraftservers.com/</loc>
-  <lastmod>2023-03-29T22:23:54+00:00</lastmod>
+  <lastmod>2023-04-12T03:52:02+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://superminecraftservers.com/about/</loc>
+  <lastmod>2023-04-12T03:52:02+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://superminecraftservers.com/partners/</loc>
+  <lastmod>2023-04-12T03:52:02+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
